@@ -1,7 +1,8 @@
-package com.selfapps.koinmvvm
+package com.selfapps.koinmvvm.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.selfapps.koinmvvm.R
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.selfapps.koinmvvm
+package com.selfapps.koinmvvm.vm
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
