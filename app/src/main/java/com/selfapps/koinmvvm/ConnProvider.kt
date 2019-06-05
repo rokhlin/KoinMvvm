@@ -1,4 +1,4 @@
 package com.selfapps.koinmvvm
 
-interface IRepository {
+interface ConnProvider {
 }
