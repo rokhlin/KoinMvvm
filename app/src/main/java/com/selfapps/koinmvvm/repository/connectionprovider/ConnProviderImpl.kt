@@ -1,8 +1,16 @@
 package com.selfapps.koinmvvm.repository.connectionprovider
 
-import retrofit2.Retrofit
+import com.selfapps.koinmvvm.repository.CurrencyResponse
+import io.reactivex.Observable
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class ConnProviderImpl: ConnProvider {
+
+class ConnProviderImpl: ConnProvider, KoinComponent{
+    val fixerApi : FixerApi by inject()
+    override fun getLatest(): Observable<CurrencyResponse> {
+       return fixerApi.getLatest()
+    }
 
 
 }

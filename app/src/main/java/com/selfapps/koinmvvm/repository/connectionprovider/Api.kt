@@ -12,21 +12,21 @@ class Api : KoinComponent {
     val KEY = "05802094470ddc2d9fc11699cbfae648"
 
     val httpClient = OkHttpClient.Builder()
-                        .addInterceptor { chain ->
-                            val original = chain.request()
-                            val originalHttpUrl = original.url()
+            .addInterceptor { chain ->
+                val original = chain.request()
+                val originalHttpUrl = original.url()
 
-                            val url = originalHttpUrl.newBuilder()
-                                .addQueryParameter("access_key", KEY)
-                                .build()
+                val url = originalHttpUrl.newBuilder()
+                    .addQueryParameter("access_key", KEY)
+                    .build()
 
-                            // Request customization: add request headers
-                            val requestBuilder = original.newBuilder()
-                                .url(url)
+                // Request customization: add request headers
+                val requestBuilder = original.newBuilder()
+                    .url(url)
 
-                            val request = requestBuilder.build()
-                            chain.proceed(request)
-                        }.build()
+                chain.proceed(requestBuilder.build())
+            }
+            .build()
 
 
     private val retrofit: Retrofit by inject{ parametersOf(url, httpClient)}
